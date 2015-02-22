@@ -22,7 +22,7 @@ http://manhattanmine.com/irc
 !wdc     -WDC/BTC Price              
 !tips    -TIPS/LTC Price               
 !dgc     -DGC/BTC Price
-!eac     - EAC/BTC Price
+!eac     -EAC/BTC Price
 !lyc     -LYC/BTC Price     -added
 !xrp     -XRP/BTC Price     -added
 !xpy     -XPY/BTC Price     -added
