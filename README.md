@@ -7,8 +7,9 @@ I will continue to push updates and most likely will add more features to it.
 
 <bold>Installation</bold>
 Upload the .tcl file to the scripts folder
+<br>
 Add the following entry to you eggdrop.conf or simple.conf:
-source scripts/pricebot.tcl
+<pre>source scripts/pricebot.tcl</pre>
 
 To see the bot in action, visit:
 http://manhattanmine.com/irc
