@@ -1,11 +1,12 @@
-# Cryptocurrency Price Listing Bot. A modified version of erasei's bitcoin script 
-# (in fact it has the same functionality intact as well as other features the other
-# features) which was n turn based off code written by pitbull.
-# This iteration made by withnail.
-######################################################################################
-#Modified by cintrondigital - Donation Address Btc: 138dzurFuavqyytobDTeMhSj2gh48uadcs
-# I added 7 Additional Markets and will continue to add more
-
+#########################################################################################
+# Cryptocurrency Price Listing Bot. A modified version of erasei's bitcoin script       #
+# (in fact it has the same functionality intact as well as other features the other     #
+# features) which was n turn based off code written by pitbull.                         #
+# This iteration made by withnail.                                                      #
+#########################################################################################
+# Modified by cintrondigital - Donation Address Btc: 138dzurFuavqyytobDTeMhSj2gh48uadcs #
+# I added 27 Additional Markets and will continue to add more                            #
+#########################################################################################
 
 package require http
 package require tls
@@ -51,6 +52,346 @@ proc s:wget { url } {
     return $data
 }
 
+
+bind pub - !btcd get_bitcoindark
+proc get_bitcoindark {nick uhost handle chan arg} {
+   set data2 [s:wget http://pubapi.cryptsy.com/api.php?method=singlemarketdata&marketid=256]
+   putserv "PRIVMSG $chan: $data2"
+   set text [regexp {lasttradeprice\"(.*?)\"\:} $data2 match thisvar]
+
+set thisvar [
+    string range $thisvar 0 [
+        expr {[string first "," $thisvar]-1}
+    ]
+]
+   regsub -all "\"" $thisvar "" thisvar
+   regsub -all "\:" $thisvar "" thisvar
+   putserv "PRIVMSG $chan :BTCD/BTC price on Cryptsy: $thisvar"
+
+}
+
+bind pub - !vrc get_vericoin
+proc get_vericoin {nick uhost handle chan arg} {
+   set data2 [s:wget http://pubapi.cryptsy.com/api.php?method=singlemarketdata&marketid=209]
+   putserv "PRIVMSG $chan: $data2"
+   set text [regexp {lasttradeprice\"(.*?)\"\:} $data2 match thisvar]
+
+set thisvar [
+    string range $thisvar 0 [
+        expr {[string first "," $thisvar]-1}
+    ]
+]
+   regsub -all "\"" $thisvar "" thisvar
+   regsub -all "\:" $thisvar "" thisvar
+   putserv "PRIVMSG $chan :VRC/BTC price on Cryptsy: $thisvar"
+
+}
+
+bind pub - !sys get_syscoin
+proc get_syscoin {nick uhost handle chan arg} {
+   set data2 [s:wget http://pubapi.cryptsy.com/api.php?method=singlemarketdata&marketid=278]
+   putserv "PRIVMSG $chan: $data2"
+   set text [regexp {lasttradeprice\"(.*?)\"\:} $data2 match thisvar]
+
+set thisvar [
+    string range $thisvar 0 [
+        expr {[string first "," $thisvar]-1}
+    ]
+]
+   regsub -all "\"" $thisvar "" thisvar
+   regsub -all "\:" $thisvar "" thisvar
+   putserv "PRIVMSG $chan :SYS/BTC price on Cryptsy: $thisvar"
+
+}
+
+bind pub - !pot get_potcoin
+proc get_potcoin {nick uhost handle chan arg} {
+   set data2 [s:wget http://pubapi.cryptsy.com/api.php?method=singlemarketdata&marketid=173]
+   putserv "PRIVMSG $chan: $data2"
+   set text [regexp {lasttradeprice\"(.*?)\"\:} $data2 match thisvar]
+
+set thisvar [
+    string range $thisvar 0 [
+        expr {[string first "," $thisvar]-1}
+    ]
+]
+   regsub -all "\"" $thisvar "" thisvar
+   regsub -all "\:" $thisvar "" thisvar
+   putserv "PRIVMSG $chan :POT/BTC price on Cryptsy: $thisvar"
+
+}
+
+bind pub - !opal get_opal
+proc get_opal {nick uhost handle chan arg} {
+   set data2 [s:wget http://pubapi.cryptsy.com/api.php?method=singlemarketdata&marketid=310]
+   putserv "PRIVMSG $chan: $data2"
+   set text [regexp {lasttradeprice\"(.*?)\"\:} $data2 match thisvar]
+
+set thisvar [
+    string range $thisvar 0 [
+        expr {[string first "," $thisvar]-1}
+    ]
+]
+   regsub -all "\"" $thisvar "" thisvar
+   regsub -all "\:" $thisvar "" thisvar
+   putserv "PRIVMSG $chan :OPAL/BTC price on Cryptsy: $thisvar"
+
+}
+
+bind pub - !net get_netcoin
+proc get_netcoin {nick uhost handle chan arg} {
+   set data2 [s:wget http://pubapi.cryptsy.com/api.php?method=singlemarketdata&marketid=134]
+   putserv "PRIVMSG $chan: $data2"
+   set text [regexp {lasttradeprice\"(.*?)\"\:} $data2 match thisvar]
+
+set thisvar [
+    string range $thisvar 0 [
+        expr {[string first "," $thisvar]-1}
+    ]
+]
+   regsub -all "\"" $thisvar "" thisvar
+   regsub -all "\:" $thisvar "" thisvar
+   putserv "PRIVMSG $chan :NET/BTC price on Cryptsy: $thisvar"
+
+}
+
+bind pub - !nobl get_noblecoin
+proc get_noblecoin {nick uhost handle chan arg} {
+   set data2 [s:wget http://pubapi.cryptsy.com/api.php?method=singlemarketdata&marketid=264]
+   putserv "PRIVMSG $chan: $data2"
+   set text [regexp {lasttradeprice\"(.*?)\"\:} $data2 match thisvar]
+
+set thisvar [
+    string range $thisvar 0 [
+        expr {[string first "," $thisvar]-1}
+    ]
+]
+   regsub -all "\"" $thisvar "" thisvar
+   regsub -all "\:" $thisvar "" thisvar
+   putserv "PRIVMSG $chan :NOBL/BTC price on Cryptsy: $thisvar"
+
+}
+
+bind pub - !mec get_megacoin
+proc get_megacoin {nick uhost handle chan arg} {
+   set data2 [s:wget http://pubapi.cryptsy.com/api.php?method=singlemarketdata&marketid=45]
+   putserv "PRIVMSG $chan: $data2"
+   set text [regexp {lasttradeprice\"(.*?)\"\:} $data2 match thisvar]
+
+set thisvar [
+    string range $thisvar 0 [
+        expr {[string first "," $thisvar]-1}
+    ]
+]
+   regsub -all "\"" $thisvar "" thisvar
+   regsub -all "\:" $thisvar "" thisvar
+   putserv "PRIVMSG $chan :MEC/BTC price on Cryptsy: $thisvar"
+
+}
+
+bind pub - !mzc get_mazacoin
+proc get_mazacoin {nick uhost handle chan arg} {
+   set data2 [s:wget http://pubapi.cryptsy.com/api.php?method=singlemarketdata&marketid=164]
+   putserv "PRIVMSG $chan: $data2"
+   set text [regexp {lasttradeprice\"(.*?)\"\:} $data2 match thisvar]
+
+set thisvar [
+    string range $thisvar 0 [
+        expr {[string first "," $thisvar]-1}
+    ]
+]
+   regsub -all "\"" $thisvar "" thisvar
+   regsub -all "\:" $thisvar "" thisvar
+   putserv "PRIVMSG $chan :MZC/BTC price on Cryptsy: $thisvar"
+
+}
+
+bind pub - !hyp get_hyperstake
+proc get_hyerstake {nick uhost handle chan arg} {
+   set data2 [s:wget http://pubapi.cryptsy.com/api.php?method=singlemarketdata&marketid=445]
+   putserv "PRIVMSG $chan: $data2"
+   set text [regexp {lasttradeprice\"(.*?)\"\:} $data2 match thisvar]
+
+set thisvar [
+    string range $thisvar 0 [
+        expr {[string first "," $thisvar]-1}
+    ]
+]
+   regsub -all "\"" $thisvar "" thisvar
+   regsub -all "\:" $thisvar "" thisvar
+   putserv "PRIVMSG $chan :HYP/BTC price on Cryptsy: $thisvar"
+
+}
+
+bind pub - !btc get_hobonickels
+proc get_hobonickels {nick uhost handle chan arg} {
+   set data2 [s:wget http://pubapi.cryptsy.com/api.php?method=singlemarketdata&marketid=80]
+   putserv "PRIVMSG $chan: $data2"
+   set text [regexp {lasttradeprice\"(.*?)\"\:} $data2 match thisvar]
+
+set thisvar [
+    string range $thisvar 0 [
+        expr {[string first "," $thisvar]-1}
+    ]
+]
+   regsub -all "\"" $thisvar "" thisvar
+   regsub -all "\:" $thisvar "" thisvar
+   putserv "PRIVMSG $chan :HBN/BTC price on Cryptsy: $thisvar"
+
+}
+
+bind pub - !fibre get_fibre
+proc get_fibre {nick uhost handle chan arg} {
+   set data2 [s:wget http://pubapi.cryptsy.com/api.php?method=singlemarketdata&marketid=301]
+   putserv "PRIVMSG $chan: $data2"
+   set text [regexp {lasttradeprice\"(.*?)\"\:} $data2 match thisvar]
+
+set thisvar [
+    string range $thisvar 0 [
+        expr {[string first "," $thisvar]-1}
+    ]
+]
+   regsub -all "\"" $thisvar "" thisvar
+   regsub -all "\:" $thisvar "" thisvar
+   putserv "PRIVMSG $chan :FIBRE/BTC price on Cryptsy: $thisvar"
+
+}
+
+bind pub - !emd get_emerald
+proc get_emerald {nick uhost handle chan arg} {
+   set data2 [s:wget http://pubapi.cryptsy.com/api.php?method=singlemarketdata&marketid=69]
+   putserv "PRIVMSG $chan: $data2"
+   set text [regexp {lasttradeprice\"(.*?)\"\:} $data2 match thisvar]
+
+set thisvar [
+    string range $thisvar 0 [
+        expr {[string first "," $thisvar]-1}
+    ]
+]
+   regsub -all "\"" $thisvar "" thisvar
+   regsub -all "\:" $thisvar "" thisvar
+   putserv "PRIVMSG $chan :EMD/BTC price on Cryptsy: $thisvar"
+
+}
+
+bind pub - !clam get_clam
+proc get_clam {nick uhost handle chan arg} {
+   set data2 [s:wget http://pubapi.cryptsy.com/api.php?method=singlemarketdata&marketid=462]
+   putserv "PRIVMSG $chan: $data2"
+   set text [regexp {lasttradeprice\"(.*?)\"\:} $data2 match thisvar]
+
+set thisvar [
+    string range $thisvar 0 [
+        expr {[string first "," $thisvar]-1}
+    ]
+]
+   regsub -all "\"" $thisvar "" thisvar
+   regsub -all "\:" $thisvar "" thisvar
+   putserv "PRIVMSG $chan :CLAM/BTC price on Cryptsy: $thisvar"
+
+}
+
+bind pub - !ccn get_cannacoin
+proc get_cannacoin {nick uhost handle chan arg} {
+   set data2 [s:wget http://pubapi.cryptsy.com/api.php?method=singlemarketdata&marketid=463]
+   putserv "PRIVMSG $chan: $data2"
+   set text [regexp {lasttradeprice\"(.*?)\"\:} $data2 match thisvar]
+
+set thisvar [
+    string range $thisvar 0 [
+        expr {[string first "," $thisvar]-1}
+    ]
+]
+   regsub -all "\"" $thisvar "" thisvar
+   regsub -all "\:" $thisvar "" thisvar
+   putserv "PRIVMSG $chan :CCN/BTC price on Cryptsy: $thisvar"
+
+}
+
+bind pub - !cann get_cannabiscoin
+proc get_cannabiscoin {nick uhost handle chan arg} {
+   set data2 [s:wget http://pubapi.cryptsy.com/api.php?method=singlemarketdata&marketid=300]
+   putserv "PRIVMSG $chan: $data2"
+   set text [regexp {lasttradeprice\"(.*?)\"\:} $data2 match thisvar]
+
+set thisvar [
+    string range $thisvar 0 [
+        expr {[string first "," $thisvar]-1}
+    ]
+]
+   regsub -all "\"" $thisvar "" thisvar
+   regsub -all "\:" $thisvar "" thisvar
+   putserv "PRIVMSG $chan :CANN/BTC price on Cryptsy: $thisvar"
+
+}
+
+bind pub - !blu get_bluecoin
+proc get_bluecoin {nick uhost handle chan arg} {
+   set data2 [s:wget http://pubapi.cryptsy.com/api.php?method=singlemarketdata&marketid=251]
+   putserv "PRIVMSG $chan: $data2"
+   set text [regexp {lasttradeprice\"(.*?)\"\:} $data2 match thisvar]
+
+set thisvar [
+    string range $thisvar 0 [
+        expr {[string first "," $thisvar]-1}
+    ]
+]
+   regsub -all "\"" $thisvar "" thisvar
+   regsub -all "\:" $thisvar "" thisvar
+   putserv "PRIVMSG $chan :BLU/BTC price on Cryptsy: $thisvar"
+
+}
+
+bind pub - !bet get_betacoin
+proc get_betacoin {nick uhost handle chan arg} {
+   set data2 [s:wget http://pubapi.cryptsy.com/api.php?method=singlemarketdata&marketid=129]
+   putserv "PRIVMSG $chan: $data2"
+   set text [regexp {lasttradeprice\"(.*?)\"\:} $data2 match thisvar]
+
+set thisvar [
+    string range $thisvar 0 [
+        expr {[string first "," $thisvar]-1}
+    ]
+]
+   regsub -all "\"" $thisvar "" thisvar
+   regsub -all "\:" $thisvar "" thisvar
+   putserv "PRIVMSG $chan :BET/BTC price on Cryptsy: $thisvar"
+
+}
+
+bind pub - !ari get_aricoin
+proc get_aricoin {nick uhost handle chan arg} {
+   set data2 [s:wget http://pubapi.cryptsy.com/api.php?method=singlemarketdata&marketid=471]
+   putserv "PRIVMSG $chan: $data2"
+   set text [regexp {lasttradeprice\"(.*?)\"\:} $data2 match thisvar]
+
+set thisvar [
+    string range $thisvar 0 [
+        expr {[string first "," $thisvar]-1}
+    ]
+]
+   regsub -all "\"" $thisvar "" thisvar
+   regsub -all "\:" $thisvar "" thisvar
+   putserv "PRIVMSG $chan :ARI/BTC price on Cryptsy: $thisvar"
+
+}
+
+bind pub - !42 get_42coin
+proc get_42coin {nick uhost handle chan arg} {
+   set data2 [s:wget http://pubapi.cryptsy.com/api.php?method=singlemarketdata&marketid=2]
+   putserv "PRIVMSG $chan: $data2"
+   set text [regexp {lasttradeprice\"(.*?)\"\:} $data2 match thisvar]
+
+set thisvar [
+    string range $thisvar 0 [
+        expr {[string first "," $thisvar]-1}
+    ]
+]
+   regsub -all "\"" $thisvar "" thisvar
+   regsub -all "\:" $thisvar "" thisvar
+   putserv "PRIVMSG $chan :42/BTC price on Cryptsy: $thisvar"
+
+}
 
 bind pub - !btc get_bitcoin
 proc get_bitcoin {nick uhost handle chan arg} {
@@ -175,6 +516,9 @@ set thisvar [
    putserv "PRIVMSG $chan :DRK/BTC price on Cryptsy: $thisvar"
 
 }
+##################
+# Original Pairs #
+##################
 
 bind pub - !doge get_dogecoin
 proc get_dogecoin {nick uhost handle chan arg} {

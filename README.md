@@ -2,7 +2,7 @@
 This bot was discovered on Egghelp.
 The code was outdated and needed additional trading pairs.
 The MTGox portion of the code was removed in this version.
-I've already added additional trading pairs.
+I've already added 27 additional trading pairs.
 I will continue to push updates and most likely will add more features to it.
 
 <bold>Installation</bold>:
@@ -30,6 +30,26 @@ http://manhattanmine.com/irc
 !xpy     -XPY/BTC Price     -added
 !bitb    -BITB/BTC Price    -added
 !dgb     -DGB/BTC Price     -added
+!btcd    -BTCD/BTC Price    -added
+!vrc     -VRC/BTC Price     -added
+!sys     -SYS/BTC Price     -added
+!pot     -POT/BTC Price     -added
+!opal    -OPAL/BTC Price    -added
+!net     -NET/BTC Price     -added
+!nobl    -NOBL/BTC Price    -added
+!mec     -MEC/BTC Price     -added
+!mzc     -MZC/BTC Price     -added
+!hyp     -HYP/BTC Price     -added
+!hbn     -HBN/BTC Price     -added
+!fibre   -FIBRE/BTC Price   -added
+!emd     -EMD/BTC Price     -added
+!clam    -CLAM/BTC Price    -added
+!ccn     -CCN/BTC Price     -added
+!cann    -CANN/BTC Price    -added
+!blu     -BLU/BTC Price     -added
+!bet     -BET/BTC Price     -added
+!ari     -ARI/BTC Price     -added
+!42      -42/BTC Price      -added
 </pre>
 
 Snippet of code to rewrite:
