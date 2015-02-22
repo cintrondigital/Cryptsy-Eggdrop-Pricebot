@@ -5,7 +5,8 @@ The MTGox portion of the bot was removed in this version
 I've already added additional trading pairs.
 I will continue to push updates and most likely will add more features to it.
 
-<bold>Installation</bold>
+<bold>Installation</bold>:
+
 Upload the .tcl file to the scripts folder
 <br>
 Add the following entry to you eggdrop.conf or simple.conf:
