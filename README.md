@@ -1,6 +1,6 @@
 # Cryptsy-Eggdrop-Pricebot
 This bot was discovered on Egghelp.
-The bot was outdated and needed additional trading pairs.
+The code was outdated and needed additional trading pairs.
 The MTGox portion of the bot was removed in this version
 I've already added additional trading pairs.
 I will continue to push updates and most likely will add more features to it.
