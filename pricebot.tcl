@@ -4,7 +4,7 @@
 # This iteration made by withnail.
 ######################################################################################
 #Modified by cintrondigital - Donation Address Btc: 138dzurFuavqyytobDTeMhSj2gh48uadcs
-# I added XXX Additional Markets
+# I added 7 Additional Markets and will continue to add more
 
 
 package require http
