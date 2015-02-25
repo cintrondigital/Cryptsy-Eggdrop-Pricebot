@@ -52,6 +52,22 @@ proc s:wget { url } {
     return $data
 }
 
+bind pub - !lot get_lottocoin
+proc get_lottocoin {nick uhost handle chan arg} {
+   set data2 [s:wget http://pubapi.cryptsy.com/api.php?method=singlemarketdata&marketid=243]
+   putserv "PRIVMSG $chan: $data2"
+   set text [regexp {lasttradeprice\"(.*?)\"\:} $data2 match thisvar]
+
+set thisvar [
+    string range $thisvar 0 [
+        expr {[string first "," $thisvar]-1}
+    ]
+]
+   regsub -all "\"" $thisvar "" thisvar
+   regsub -all "\:" $thisvar "" thisvar
+   putserv "PRIVMSG $chan :LOT/LTC price on Cryptsy: $thisvar"
+
+}
 
 bind pub - !btcd get_bitcoindark
 proc get_bitcoindark {nick uhost handle chan arg} {

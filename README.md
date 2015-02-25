@@ -50,6 +50,7 @@ http://manhattanmine.com/irc
 !bet     -BET/BTC Price     -added
 !ari     -ARI/BTC Price     -added
 !42      -42/BTC Price      -added
+!lot     -LOT/LTC Price     -added  
 </pre>
 
 Snippet of code to rewrite:
